@@ -143,8 +143,8 @@ const ProjectsSection = () => {
             </ul>
           ))
         ) : tag === "Skills" ? (
-          <div className="flex justify-center items-center">
-            <ul className=" flex justify-evenly  mt-10  md:gap-10   w-[80%] ">
+          <div className="flex justify-center md:gap-0  items-center">
+            <ul className=" md:flex grid grid-cols-3 gap-5 justify-evenly  md:mt-10  md:gap-10   md:w-[80%] ">
               {skills.map((skill, index) => {
                 return (
                   <motion.li
@@ -160,7 +160,7 @@ const ProjectsSection = () => {
                         width={100}
                         alt="skills"
                         src={skill.image}
-                        className={` hover:scale-125    duration-300 ease-in-out transition ${
+                        className={` hover:scale-125 duration-300 ease-in-out transition ${
                           skill.id === 3 ? "bg-white rounded-full" : ""
                         }`}
                       />

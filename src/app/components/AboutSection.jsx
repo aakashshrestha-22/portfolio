@@ -2,6 +2,8 @@
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
+import { GiGraduateCap } from "react-icons/gi";
+import { Graduate } from "next/font/google";
 
 const TAB_DATA = [
   {
@@ -40,16 +42,32 @@ const TAB_DATA = [
   },
 ];
 
+const text = ` As a graduate in Computer Science and Engineering, specializing in
+front-end development, I bring a versatile skill set to the table.
+With expertise in React.js, Next.js, and Tailwind CSS, I craft
+engaging and responsive user interfaces that elevate digital
+experiences. My proficiency extends beyond the front end,
+encompassing Node.js and MongoDB for robust back-end development.
+Additionally, my knowledge of Python and blockchain basics adds
+depth to my technical toolkit, enabling me to tackle a diverse range
+of projects with creativity and precision. Passionate about staying
+at the forefront of technology, I am committed to continuous
+learning and innovation in the ever-evolving landscape of web
+development.`;
+
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
+  const [showMore, setShowMore] = useState(false);
 
   const handleTabChange = (id) => {
     startTransition(() => {
       setTab(id);
     });
   };
-
+  const handleShowMore = () => {
+    setShowMore(!showMore);
+  };
   return (
     <section className="text-white" id="about">
       <div className="md:flex justify-between   py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
@@ -73,21 +91,18 @@ const AboutSection = () => {
               height={500}
             />
           </div> */}
-          <p className="text-base lg:text-lg md:text-justify">
-            As a graduate in Computer Science and Engineering, specializing in
-            front-end development, I bring a versatile skill set to the table.
-            With expertise in React.js, Next.js, and Tailwind CSS, I craft
-            engaging and responsive user interfaces that elevate digital
-            experiences. My proficiency extends beyond the front end,
-            encompassing Node.js and MongoDB for robust back-end development.
-            Additionally, my knowledge of Python and blockchain basics adds
-            depth to my technical toolkit, enabling me to tackle a diverse range
-            of projects with creativity and precision. Passionate about staying
-            at the forefront of technology, I am committed to continuous
-            learning and innovation in the ever-evolving landscape of web
-            development.
+          <p className="text-base lg:text-lg md:text-justify ">
+            {!showMore ? (
+              <div className="text-justify">{text.slice(0, 161)}</div>
+            ) : (
+              text
+            )}
           </p>
-
+          <div>
+            <button onClick={handleShowMore} className="  text-primary-400 ">
+              {showMore ? "See Less..." : "See More..."}
+            </button>
+          </div>
           {/* <div className="flex flex-row justify-start mt-8">
             <TabButton
               selectTab={() => handleTabChange("skills")}
@@ -116,15 +131,21 @@ const AboutSection = () => {
           </div> */}
           <div className="mt-5">
             <h1 className="font-bold text-xl">Education:</h1>
-            <table>
+            <table className="w-full">
               <tr>
-                <td>Visvesvaraya Technological University</td>
+                <td>
+                  <GiGraduateCap className="text-xl" />
+                </td>
+                <td className="pl-1">Visvesvaraya Technological University</td>
                 <td className="pl-10 py-3">
                   BE Computer Science and Engineering
                 </td>
               </tr>
               <tr>
-                <td>The Times H.S.S</td>
+                <td>
+                  <GiGraduateCap className="text-xl" />
+                </td>
+                <td className="pl-1"> The Times H.S.S</td>
                 <td className="pl-10 ">+2 Science</td>
               </tr>
             </table>
