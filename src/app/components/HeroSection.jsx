@@ -39,7 +39,7 @@ const HeroSection = () => {
             entrenched in the realm of technology, driven by a profound passion
             for innovation and advancement within the field.
           </p>
-          <div>
+          <div className=" flex md:flex-row flex-col md:gap-0 gap-3">
             <Link
               href="/#contact"
               className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white"
@@ -55,7 +55,7 @@ const HeroSection = () => {
               </span>
             </Link> */}
             <Link
-              href="www.irjet.net/archives/V10/i4/IRJET-V10I4177.pdf"
+              href="https://www.irjet.net/archives/V10/i4/IRJET-V10I4177.pdf"
               className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white"
             >
               See my Research paper
